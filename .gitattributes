@@ -10,6 +10,12 @@
 # Code
 *.cs text diff=csharp
 
+#FMOD
+/Assets/StreamingAssets/*.bank lfs
+/Assets/Plugins/fmodstudio.bundle/** lfs
+/Assets/Plugins/fmodstudioL.bundle/** lfs
+/Source/** lfs
+
 # Unity Text Assets
 *.meta unityyaml
 *.unity unityyaml
