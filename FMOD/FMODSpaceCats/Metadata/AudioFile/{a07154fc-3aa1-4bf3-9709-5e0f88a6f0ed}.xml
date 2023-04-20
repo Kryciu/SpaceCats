@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{a07154fc-3aa1-4bf3-9709-5e0f88a6f0ed}">
+		<property name="assetPath">
+			<value>asteroids/explosion big asteroids.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.5</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{baefa090-d0f8-4000-996e-91224c5ca83b}</destination>
+		</relationship>
+	</object>
+</objects>

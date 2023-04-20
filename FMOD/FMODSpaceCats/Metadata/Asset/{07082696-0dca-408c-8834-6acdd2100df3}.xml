@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{07082696-0dca-408c-8834-6acdd2100df3}">
+		<property name="color">
+			<value>Red</value>
+		</property>
+		<property name="assetPath">
+			<value>stronger blaster/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{baefa090-d0f8-4000-996e-91224c5ca83b}</destination>
+		</relationship>
+	</object>
+</objects>

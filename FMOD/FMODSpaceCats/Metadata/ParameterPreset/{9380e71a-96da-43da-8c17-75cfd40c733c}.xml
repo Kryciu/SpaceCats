@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{9380e71a-96da-43da-8c17-75cfd40c733c}">
+		<property name="name">
+			<value>controls</value>
+		</property>
+		<relationship name="folder">
+			<destination>{0a7fbf82-89eb-492a-ac93-45afd97f75d4}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{a22f4dcd-3efd-4a40-be58-ca5ea0adbc32}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{a22f4dcd-3efd-4a40-be58-ca5ea0adbc32}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>beep 1</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{3b443e92-5d29-4140-8951-eb93abfb0fb7}">
+		<property name="name">
+			<value>asteroid</value>
+		</property>
+		<relationship name="folder">
+			<destination>{0a7fbf82-89eb-492a-ac93-45afd97f75d4}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{df32f4be-9676-4e85-afb6-271803e0f41e}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{df32f4be-9676-4e85-afb6-271803e0f41e}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>4</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>small explosion</value>
+			<value>big explosion</value>
+			<value>small asteroid</value>
+			<value>big asteroid</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
