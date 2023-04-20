@@ -395,6 +395,7 @@ GameObject:
   - component: {fileID: 975554221}
   - component: {fileID: 975554223}
   - component: {fileID: 975554224}
+  - component: {fileID: 975554225}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -435,11 +436,10 @@ MonoBehaviour:
   sideMoveSpeed: 50
   forwardMoveSpeed: 1
   tiltAngle: 35
+  rotationSmooth: 20
   target: {fileID: 765805851}
   cameraOffset: {x: 0, y: 1.5, z: -5}
   smoothSpeed: 1
-  multiplier: 5
-  smooth: 5
 --- !u!114 &975554224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,11 +454,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageAmount: 0
   currentFireRate: 0
-  laser: {fileID: 11400000, guid: 780c6585beb9b1c44b91d0f931daa826, type: 2}
-  strongerlaser: {fileID: 11400000, guid: 24aa96c697f027b41b1c0bbeebfd1517, type: 2}
+  laser: {fileID: 11400000, guid: 1a410ec1bfcc9304582a07f4de247295, type: 2}
+  strongerLaser: {fileID: 11400000, guid: a83398468cb3129459d6c589a6129095, type: 2}
   laserPrefab: {fileID: 5305621196713976268, guid: 99330a97cfbcf064f803ce25334b29b5,
     type: 3}
   ship: {fileID: 699859503}
+--- !u!114 &975554225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975554220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adeb2660b16184a45b36b0c7e89616c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipStats: {fileID: 11400000, guid: b9d06cf5ef2eadc4bbbb23bbdbe5d497, type: 2}
 --- !u!1 &1857219078
 GameObject:
   m_ObjectHideFlags: 0

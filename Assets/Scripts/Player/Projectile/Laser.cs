@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Laser : MonoBehaviour
 {
@@ -21,9 +22,9 @@ public class Laser : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //When hit, deal damage
-        if (!other.CompareTag("Asteroid")) return;
-        var asteroid = other.GetComponent<Asteroid>();
-        asteroid.TakeDamage(damage);
+        IDamagable damagable = other.GetComponentInParent<IDamagable>();
+        if (damagable == null) return;
+        damagable.DealDamage(damage);
         Debug.Log(damage);
     }
 

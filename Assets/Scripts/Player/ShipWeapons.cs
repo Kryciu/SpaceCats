@@ -9,16 +9,19 @@ public class ShipWeapons : MonoBehaviour
 {
     [HideInInspector]
     public float damageAmount;
+    [HideInInspector]
     public float currentFireRate;
 
-    public WeaponDataSO laser;
-    public WeaponDataSO strongerlaser;
+    [Header("Ship Weapons")]
+    public ShipWeaponsData laser;
+    public ShipWeaponsData strongerLaser;
 
+    [Header("Laser Settings")]
     public GameObject laserPrefab;
     public GameObject ship;
 
     private float _lastShootTime;
-    private bool _isShooting;
+    //private bool _isShooting;
 
     private void Start()
     {
@@ -35,7 +38,7 @@ public class ShipWeapons : MonoBehaviour
             //if arrow down is pressed set weapon to stronger laser and update damage
         } else if (Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical") < 0)
         {
-            UpdateDamageData(strongerlaser);
+            UpdateDamageData(strongerLaser);
         }
 
         if (Input.GetKey("space"))
@@ -45,10 +48,10 @@ public class ShipWeapons : MonoBehaviour
 
     }
 
-    private void UpdateDamageData(WeaponDataSO WeaponType)
+    private void UpdateDamageData(ShipWeaponsData weaponType)
     {
-        damageAmount = WeaponType.Damage;
-        currentFireRate = WeaponType.FireRate;
+        damageAmount = weaponType.damage;
+        currentFireRate = weaponType.fireRate;
     }
 
     private void ShootLaser()
