@@ -8,7 +8,7 @@ public class ShipMovement : MonoBehaviour
     //Components
     private Rigidbody _shipRigidbody;
     private Camera _mainCamera;
-    
+
     //Movement
     private Vector3 _sideMovement;
     private float _shipRotation;
@@ -35,6 +35,7 @@ public class ShipMovement : MonoBehaviour
     //Ship movement
     private void Update()
     {
+        if (ship == null) return;
         _moveRight = Input.GetAxis("Horizontal");
 
         _sideMovement = new Vector3(_moveRight, 0, forwardMoveSpeed);
@@ -48,6 +49,7 @@ public class ShipMovement : MonoBehaviour
     //Update camera location
     private void LateUpdate()
     {
+        if (ship == null) return;
         Vector3 targetPosition = target.position + cameraOffset;
         Vector3 smoothedPosition = Vector3.Lerp(_mainCamera.transform.position, targetPosition, smoothSpeed);
         _mainCamera.transform.position = smoothedPosition;
@@ -68,7 +70,7 @@ public class ShipMovement : MonoBehaviour
                 if (_moveRight > 0)
                 {
                     _sideMovement = new Vector3(_moveRight, 0, forwardMoveSpeed);
-                }
+                } 
                 break;
         }
     }

@@ -5,14 +5,16 @@ TagManager:
   serializedVersion: 2
   tags:
   - Coin
+  - Asteroid
+  - Ship
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ship
   - Water
   - UI
-  - 
+  - Laser
   - 
   - 
   - 
