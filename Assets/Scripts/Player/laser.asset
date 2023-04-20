@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e02366af7607eab45be0da1b09ebbba4, type: 3}
-  m_Name: WeaponData
+  m_Name: laser
   m_EditorClassIdentifier: 
-  laserDamage: 25
-  laserFireRate: 0.05
-  strongerLaserDamage: 50
-  strongerLaserFireRate: 0.35
+  Damage: 25
+  FireRate: 0.05
+  Cooldown: 1

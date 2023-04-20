@@ -25,6 +25,11 @@ public class ShipMovement : MonoBehaviour
     public Vector3 cameraOffset;
     public float smoothSpeed;
 
+    [SerializeField]
+    private float multiplier;
+    [SerializeField]
+    private float smooth;
+
 
     private void Awake()
     {
@@ -42,8 +47,10 @@ public class ShipMovement : MonoBehaviour
         MovementBoundaries();
         _shipRigidbody.velocity = _sideMovement * sideMoveSpeed;
 
-        _shipRotation = -_moveRight * tiltAngle;
-        _shipRigidbody.rotation = Quaternion.Euler(Vector3.forward * _shipRotation);
+        _shipRotation = -_moveRight * multiplier;
+        Quaternion targetRotation = Quaternion.AngleAxis(_shipRotation, Vector3.forward);
+        //_shipRigidbody.rotation = Quaternion.Euler(Vector3.forward * _shipRotation);
+        _shipRigidbody.rotation = Quaternion.Slerp(_shipRigidbody.rotation, targetRotation, smooth * Time.deltaTime);
     }
 
     //Update camera location

@@ -6,8 +6,7 @@ using UnityEngine;
 public class WeaponDataSO : ScriptableObject
 {
     [Header("Weapon Data")] 
-    public float laserDamage = 25;
-    public float laserFireRate = 0.05f;
-    public float strongerLaserDamage = 50;
-    public float strongerLaserFireRate = 0.35f;
+    public float Damage = 25f;
+    public float FireRate = 0.05f;
+    public float Cooldown = 1.0f;
 }

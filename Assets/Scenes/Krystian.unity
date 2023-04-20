@@ -438,6 +438,8 @@ MonoBehaviour:
   target: {fileID: 765805851}
   cameraOffset: {x: 0, y: 1.5, z: -5}
   smoothSpeed: 1
+  multiplier: 5
+  smooth: 5
 --- !u!114 &975554224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,11 +453,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 0
-  weaponData: {fileID: 11400000, guid: b6375d07ec55e4949aa8387225ea02de, type: 2}
+  currentFireRate: 0
+  laser: {fileID: 11400000, guid: 780c6585beb9b1c44b91d0f931daa826, type: 2}
+  strongerlaser: {fileID: 11400000, guid: 24aa96c697f027b41b1c0bbeebfd1517, type: 2}
   laserPrefab: {fileID: 5305621196713976268, guid: 99330a97cfbcf064f803ce25334b29b5,
     type: 3}
   ship: {fileID: 699859503}
-  weaponTypes: 0
 --- !u!1 &1857219078
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,6 +616,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1481524420921932528, guid: 83b83cc4b907b3e4e9999c44deb11128,
+        type: 3}
+      propertyPath: asteroidData
+      value: 
+      objectReference: {fileID: 11400000, guid: 97f1a7183c7bf7c4db8dd55e15c86f91,
+        type: 2}
     - target: {fileID: 1481524420921932529, guid: 83b83cc4b907b3e4e9999c44deb11128,
         type: 3}
       propertyPath: m_Name
@@ -687,6 +696,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2968413915651101155, guid: a3bf898f82ec79345acb9a1aeb350994,
+        type: 3}
+      propertyPath: asteroidData
+      value: 
+      objectReference: {fileID: 11400000, guid: 6474b0a01cb805f49a5d6d6888fcf417,
+        type: 2}
     - target: {fileID: 2968413915651101159, guid: a3bf898f82ec79345acb9a1aeb350994,
         type: 3}
       propertyPath: m_RootOrder
@@ -756,6 +771,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3889932105264333888, guid: 376568691b4d4354eb91103435414da3,
+        type: 3}
+      propertyPath: asteroidData
+      value: 
+      objectReference: {fileID: 11400000, guid: 41343a778ef98ad4db9e9d88d1e95271,
+        type: 2}
     - target: {fileID: 3889932105264333889, guid: 376568691b4d4354eb91103435414da3,
         type: 3}
       propertyPath: m_Name
