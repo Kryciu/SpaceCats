@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{8cce94b5-fd0f-4967-a13a-e12f0df8f3ba}">
+		<property name="assetPath">
+			<value>smaller blaster/smaller blaster 2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{baefa090-d0f8-4000-996e-91224c5ca83b}</destination>
+		</relationship>
+	</object>
+</objects>

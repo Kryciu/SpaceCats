@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{277eb1f6-ff9a-4f43-a4f2-0031b09447b0}">
+		<property name="name">
+			<value>asteroids</value>
+		</property>
+		<relationship name="folder">
+			<destination>{0a7fbf82-89eb-492a-ac93-45afd97f75d4}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{aa340b1f-29d3-4b38-b424-2cb855f6d5c6}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{aa340b1f-29d3-4b38-b424-2cb855f6d5c6}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>3</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>Value A</value>
+			<value>Value B</value>
+			<value>Value C</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{97211271-ee45-4ff2-915c-56deb10f41d5}">
+		<property name="color">
+			<value>Green Light 1</value>
+		</property>
+		<property name="assetPath">
+			<value>update/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{baefa090-d0f8-4000-996e-91224c5ca83b}</destination>
+		</relationship>
+	</object>
+</objects>

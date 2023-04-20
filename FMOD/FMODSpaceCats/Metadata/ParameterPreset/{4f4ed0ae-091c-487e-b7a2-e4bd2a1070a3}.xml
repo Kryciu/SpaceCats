@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{4f4ed0ae-091c-487e-b7a2-e4bd2a1070a3}">
+		<property name="name">
+			<value>blasters</value>
+		</property>
+		<relationship name="folder">
+			<destination>{0a7fbf82-89eb-492a-ac93-45afd97f75d4}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{663aef9a-4273-4fca-9461-696d6d842dbb}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{663aef9a-4273-4fca-9461-696d6d842dbb}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>small blaster</value>
+			<value>stronger blaster</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
