@@ -8,11 +8,16 @@ public class Asteroid : MonoBehaviour, IDamagable
     [Header("Asteroid Settings")]
     public AsteroidData asteroidData;
 
-    private float _health;
+    private Rigidbody _asteroidRB;
 
     private void Awake()
     {
-        _health = asteroidData.health;
+        _asteroidRB = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        _asteroidRB.velocity = new Vector3(0, 0, (asteroidData.speed * -1));
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,8 +34,8 @@ public class Asteroid : MonoBehaviour, IDamagable
 
     public void DealDamage(float damage)
     {
-        _health -= damage;
-        if (_health <= 0)
+        asteroidData.health -= damage;
+        if (asteroidData.health <= 0)
         {
             DestroyObject();
         }

@@ -16,7 +16,7 @@ public class Laser : MonoBehaviour
     private void Start()
     {
         //Destroy laser if didn't hit anything
-        Destroy(gameObject,5f);
+        Destroy(gameObject,1f);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,7 +25,6 @@ public class Laser : MonoBehaviour
         IDamagable damagable = other.GetComponentInParent<IDamagable>();
         if (damagable == null) return;
         damagable.DealDamage(damage);
-        Debug.Log(damage);
     }
 
     private void Update()

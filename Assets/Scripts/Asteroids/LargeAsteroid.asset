@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: LargeAsteroid
   m_EditorClassIdentifier: 
   health: 500
+  speed: 5
