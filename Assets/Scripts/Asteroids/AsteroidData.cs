@@ -7,4 +7,6 @@ public class AsteroidData : ScriptableObject
 {
     [Header("Asteroid Settings")]
     public float health = 100;
+
+    public float speed = 10;
 }
