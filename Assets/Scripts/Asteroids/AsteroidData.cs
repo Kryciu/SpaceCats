@@ -9,4 +9,12 @@ public class AsteroidData : ScriptableObject
     public float health = 100;
 
     public float speed = 10;
+    public size Size;
+    public enum  size
+    {
+
+        Small,Medium,Large
+
+
+    };
 }
