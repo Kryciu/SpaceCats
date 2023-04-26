@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Asteroid : MonoBehaviour, IDamagable
+public class Asteroid : MonoBehaviour
 {
     [Header("Asteroid Settings")]
     public AsteroidData asteroidData;
@@ -24,12 +24,7 @@ public class Asteroid : MonoBehaviour, IDamagable
     {
         IDamagable damagable = other.GetComponentInParent<IDamagable>();
         if (damagable == null) return;
-        damagable.DestroyObject();
-    }
-
-    public void DestroyObject()
-    {
-        Destroy(gameObject);
+        Destroy(other.gameObject);
     }
 
     public void DealDamage(float damage)
@@ -37,7 +32,7 @@ public class Asteroid : MonoBehaviour, IDamagable
         asteroidData.health -= damage;
         if (asteroidData.health <= 0)
         {
-            DestroyObject();
+            Destroy(gameObject);
         }
     }
 }
