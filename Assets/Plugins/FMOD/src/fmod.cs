@@ -1016,7 +1016,7 @@ namespace FMOD
 
         #endregion
 
-        public static void Log(string chuje)
+        public static void Log(string name)
         {
             throw new NotImplementedException();
         }
