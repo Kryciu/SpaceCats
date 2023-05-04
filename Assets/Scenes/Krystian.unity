@@ -238,6 +238,12 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!20 &1408812500 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4377456547737249649, guid: d53d6bccd0136fb4c8d5d8141d9dab18,
+    type: 3}
+  m_PrefabInstance: {fileID: 4377456549147993088}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1857219078
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,10 +285,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1481524420921932528, guid: 83b83cc4b907b3e4e9999c44deb11128,
         type: 3}
+      propertyPath: eventName
+      value: event:/asteroids
+      objectReference: {fileID: 0}
+    - target: {fileID: 1481524420921932528, guid: 83b83cc4b907b3e4e9999c44deb11128,
+        type: 3}
       propertyPath: asteroidData
       value: 
       objectReference: {fileID: 11400000, guid: 97f1a7183c7bf7c4db8dd55e15c86f91,
         type: 2}
+    - target: {fileID: 1481524420921932528, guid: 83b83cc4b907b3e4e9999c44deb11128,
+        type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 1408812500}
     - target: {fileID: 1481524420921932529, guid: 83b83cc4b907b3e4e9999c44deb11128,
         type: 3}
       propertyPath: m_Name
@@ -306,7 +322,7 @@ PrefabInstance:
     - target: {fileID: 1481524420921932532, guid: 83b83cc4b907b3e4e9999c44deb11128,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 158.6
+      value: 280.8
       objectReference: {fileID: 0}
     - target: {fileID: 1481524420921932532, guid: 83b83cc4b907b3e4e9999c44deb11128,
         type: 3}
@@ -569,8 +585,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4377456548977943215, guid: d53d6bccd0136fb4c8d5d8141d9dab18,
         type: 3}
+      propertyPath: sideMoveSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377456548977943215, guid: d53d6bccd0136fb4c8d5d8141d9dab18,
+        type: 3}
       propertyPath: forwardMoveSpeed
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d53d6bccd0136fb4c8d5d8141d9dab18, type: 3}
+--- !u!1 &4377456549147993089 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4377456548977943212, guid: d53d6bccd0136fb4c8d5d8141d9dab18,
+    type: 3}
+  m_PrefabInstance: {fileID: 4377456549147993088}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4377456549147993091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4377456549147993089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca97d22b8455c514eb6f094549f8472f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicMenu:
+    Guid:
+      Data1: 687240300
+      Data2: 1178137269
+      Data3: -171433324
+      Data4: -2010972180
+    Path: event:/musiclvl1
