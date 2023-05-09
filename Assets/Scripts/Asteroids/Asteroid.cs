@@ -5,7 +5,7 @@ using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
 
-public class Asteroid : MonoBehaviour, IDamagable
+public class Asteroid : MonoBehaviour
 {
     [Header("Asteroid Settings")]
     public AsteroidData asteroidData;
@@ -49,7 +49,7 @@ public class Asteroid : MonoBehaviour, IDamagable
         asteroidData.health -= damage;
         if (asteroidData.health <= 0)
         {
-            DestroyObject();
+            Destroy(gameObject);
         }
     }
 }

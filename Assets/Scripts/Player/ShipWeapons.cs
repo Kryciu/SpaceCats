@@ -22,13 +22,12 @@ public class ShipWeapons : MonoBehaviour
 
     [Header("Laser Settings")]
     public GameObject laserPrefab;
-    public GameObject ship;
+    public GameObject ProjectileOrigin;
 
     private float _lastShootTime;
     private float _cooldownCounter;
     
     private bool _canShoot = true;
-    private bool _isShooting;
 
     private void Start()
     {
@@ -50,11 +49,11 @@ public class ShipWeapons : MonoBehaviour
 
         if (Input.GetKey("space"))
         {
+            if (laserPrefab == null) return;
             ShootLaser();
         }
         else
         {
-            _isShooting = false;
             if (!(_cooldownCounter > 0)) return;
             _cooldownCounter -= 0.1f;
         }
@@ -62,6 +61,7 @@ public class ShipWeapons : MonoBehaviour
 
     private void UpdateWeaponData(ShipWeaponsData weaponType)
     {
+        if(weaponType == null) return;
         damageAmount = weaponType.damage;
         currentFireRate = weaponType.fireRate;
         currentCooldown = weaponType.coolDown;
@@ -70,12 +70,12 @@ public class ShipWeapons : MonoBehaviour
     private void ShootLaser()
     {
         if (!_canShoot) return;
-        _isShooting = true;
         _cooldownCounter += 0.1f;
         if (!(_cooldownCounter >= 200))
         {
             if (!(Time.time > _lastShootTime + currentFireRate)) return;
-            Instantiate(laserPrefab, ship.transform.position, quaternion.identity);
+            if (ProjectileOrigin == null) return;
+            Instantiate(laserPrefab, ProjectileOrigin.transform.position, quaternion.identity);
             laserPrefab.GetComponent<Laser>().damage = damageAmount;
             _lastShootTime = Time.time;
         }
