@@ -17,7 +17,6 @@ public class ShipMovement : MonoBehaviour
     [Header("Ship Settings")] 
     public GameObject ship;
     public float sideMoveSpeed;
-    public float forwardMoveSpeed;
     public float tiltAngle;
     public float rotationSmooth;
 
@@ -38,7 +37,7 @@ public class ShipMovement : MonoBehaviour
         if (ship == null) return;
         _moveRight = Input.GetAxis("Horizontal");
 
-        _sideMovement = new Vector3(_moveRight, 0, forwardMoveSpeed);
+        _sideMovement = new Vector3(_moveRight, 0, 0);
         MovementBoundaries();
         _shipRigidbody.velocity = _sideMovement * sideMoveSpeed;
 
@@ -60,17 +59,17 @@ public class ShipMovement : MonoBehaviour
         switch (ship.transform.position.x)
         {
             case >= 50:
-                _sideMovement = new Vector3(0, 0, forwardMoveSpeed);
+                _sideMovement = new Vector3(0, 0, 0);
                 if (_moveRight < 0)
                 {
-                    _sideMovement = new Vector3(_moveRight, 0, forwardMoveSpeed);
+                    _sideMovement = new Vector3(_moveRight, 0, 0);
                 }
                 break;
             case <= -50:
-                _sideMovement = new Vector3(0, 0, forwardMoveSpeed);
+                _sideMovement = new Vector3(0, 0, 0);
                 if (_moveRight > 0)
                 {
-                    _sideMovement = new Vector3(_moveRight, 0, forwardMoveSpeed);
+                    _sideMovement = new Vector3(_moveRight, 0, 0);
                 } 
                 break;
         }
