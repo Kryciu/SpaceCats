@@ -344,7 +344,7 @@ MonoBehaviour:
   strongerLaser: {fileID: 11400000, guid: a83398468cb3129459d6c589a6129095, type: 2}
   laserPrefab: {fileID: 5305621196713976268, guid: 99330a97cfbcf064f803ce25334b29b5,
     type: 3}
-  ship: {fileID: 4377456548719060527}
+  ProjectileOrigin: {fileID: 4377456548719060527}
 --- !u!114 &4377456548977943217
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,9 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipParameters : MonoBehaviour
+public class ShipParameters : MonoBehaviour, IDamagable
 {
     [Header("Ship Stats")]
     public ShipStats shipStats;

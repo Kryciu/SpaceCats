@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 158bf295f3b57024d826845a677498ff, type: 3}
   m_Name: MediumAsteroid
   m_EditorClassIdentifier: 
-  health: 250
-  speed: 10
+  health: -250
+  speed: 60
   Size: 1

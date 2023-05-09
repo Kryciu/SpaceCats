@@ -5,23 +5,23 @@ using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
 
-public class Asteroid : MonoBehaviour
+public class Asteroid : MonoBehaviour, IDamagable
 {
     [Header("Asteroid Settings")]
     public AsteroidData asteroidData;
     private string eventName = "event:/asteroids";
-    FMOD.Studio.EventInstance instance;
+    EventInstance instance;
     private Rigidbody _asteroidRB;
-    public Camera playerCamera;
+    private Camera _playerCamera;
 
     private void Awake()
     {
+        _playerCamera = Camera.main;
         _asteroidRB = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
-        
         _asteroidRB.velocity = new Vector3(0, 0, (asteroidData.speed * -1));
     }
 
@@ -29,18 +29,15 @@ public class Asteroid : MonoBehaviour
     {
         IDamagable damagable = other.GetComponentInParent<IDamagable>();
         if (damagable == null) return;
-        damagable.DestroyObject();
+        Destroy(other.gameObject);
     }
 
     public void DestroyObject()
     {
-
-        instance = FMODUnity.RuntimeManager.CreateInstance(eventName);
-        instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(playerCamera.transform.position));
+        instance = RuntimeManager.CreateInstance(eventName);
+        instance.set3DAttributes(RuntimeUtils.To3DAttributes(_playerCamera.transform.position));
         instance.setParameterByNameWithLabel("asteroid", "small explosion");
         instance.start();
-        
-       
         Destroy(gameObject);
     }
 
@@ -49,7 +46,7 @@ public class Asteroid : MonoBehaviour
         asteroidData.health -= damage;
         if (asteroidData.health <= 0)
         {
-            Destroy(gameObject);
+            DestroyObject();
         }
     }
 }
