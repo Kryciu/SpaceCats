@@ -6,7 +6,7 @@ using UnityEngine;
 public class ShipWeaponsData : ScriptableObject
 {
     [Header("Weapon Data")] 
-    public float damage = 25;
-    public float fireRate = 0.05f;
-    public float coolDown = 1.0f;
+    public float damage;
+    public float fireRate;
+    public float coolDown;
 }

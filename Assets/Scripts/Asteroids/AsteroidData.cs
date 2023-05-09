@@ -12,9 +12,6 @@ public class AsteroidData : ScriptableObject
     public size Size;
     public enum  size
     {
-
         Small,Medium,Large
-
-
     };
 }

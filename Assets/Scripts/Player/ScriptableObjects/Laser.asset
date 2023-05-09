@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Laser
   m_EditorClassIdentifier: 
   damage: 25
-  fireRate: 0.05
+  fireRate: 0.1
   coolDown: 1
