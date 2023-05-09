@@ -6,6 +6,12 @@ using UnityEngine;
 public class AsteroidData : ScriptableObject
 {
     [Header("Asteroid Settings")]
-    public float health;
-    public float speed;
+    public float health = 100;
+
+    public float speed = 10;
+    public size Size;
+    public enum  size
+    {
+        Small,Medium,Large
+    };
 }

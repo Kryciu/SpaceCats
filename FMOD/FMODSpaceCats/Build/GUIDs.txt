@@ -1,0 +1,14 @@
+{2b7dc394-d31f-4dcb-b29b-f82a4fd216cf} bank:/Master
+{b360e340-a264-0189-34d2-72d4be211057} bank:/Master.strings
+{c98103a9-5b34-48cc-a7ae-ee7d0ab89a17} bus:/
+{6e223d07-4e71-4eb6-aba9-28c20b67c0c3} bus:/Reverb
+{1fee4842-abe2-4c02-a623-15f0ea5576b5} event:/asteroids
+{2979e1ec-cfed-42fb-8c81-96b5694319fb} event:/blasters
+{f4d96836-b20e-4864-b496-f504f55e06e3} event:/coin
+{1c869c02-522c-472d-af19-d1ac2bbcf74d} event:/error
+{28f6746c-f2b5-4638-9422-c8f5ecff2288} event:/musiclvl1
+{8ace7ec5-9fca-4cac-b717-69b0c70f987d} event:/musicmenu
+{f32434c9-585a-4849-bc1f-a842314e5541} event:/update
+{df32f4be-9676-4e85-afb6-271803e0f41e} parameter:/asteroid
+{663aef9a-4273-4fca-9461-696d6d842dbb} parameter:/blasters
+{a22f4dcd-3efd-4a40-be58-ca5ea0adbc32} parameter:/controls
