@@ -1,23 +1,22 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using Debug = FMOD.Debug;
 
 public class Enemy : MonoBehaviour, IDamagable
 {
     public EnemyData EnemyData;
-    
-    private float maxHealth = 100;
+
+    private float maxHealth;
     private float currentHealh;
-    
+
     private Rigidbody _rb;
 
-    public List<GameObject> checkpoint = new List<GameObject>();
-    private bool Cycle = false;
-    public int i = 0;
-    public float speed = 10;
+    private float speed;
 
+    private int _currentCheckpointIndex;
 
     private void Awake()
     {
@@ -27,50 +26,37 @@ public class Enemy : MonoBehaviour, IDamagable
     // Start is called before the first frame update
     void Start()
     {
-        currentHealh = maxHealth;
+        currentHealh = EnemyData.maxHealth;
+        transform.position = EnemyData.checkpoints[_currentCheckpointIndex].transform.position;
+
+        speed = EnemyData.Speed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        var step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, checkpoint[i].transform.position, step);
-        if (transform.position == checkpoint[i].transform.position)
+        var step = (speed = EnemyData.Speed) * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position,
+            EnemyData.checkpoints[_currentCheckpointIndex].transform.position, step);
+        
+        if (transform.position == EnemyData.checkpoints[_currentCheckpointIndex].transform.position)
         {
-            if (i + 1 == checkpoint.Count)
-            {
-                i = -1;
-            }
-            i++;
-
+            _currentCheckpointIndex = (_currentCheckpointIndex + 1) % EnemyData.checkpoints.Count;
         }
+
+        void DealDamage(float damage)
+        {
+            currentHealh -= damage;
+            if (currentHealh <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+
     }
 
     public void DealDamage(float damage)
     {
-        currentHealh -= damage;
-        if (EnemyData.Health <= 0)
-        {
-            DestroyObject();
-        }
-    }
-
-    public void DestroyObject()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    private void move()
-    {
-        Cycle = true;
-        if (i <= checkpoint.Count)
-        {
-            i++;
-        }
-        else
-        {
-            i = 0;
-            Cycle = false;
-        }
+        throw new NotImplementedException();
     }
 }

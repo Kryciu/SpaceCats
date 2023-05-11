@@ -6,12 +6,13 @@ using Random = UnityEngine.Random;
 
 public class Coins_Drop : MonoBehaviour
 {
+    public EnemyData EnemyData;
     public GameObject coinPrefab;
     public int coinCount = 5;
 
     private bool isDead = false;
-    public int maxHealth = 100;
-    public int currentHealth;
+    private float maxHealth;
+    public float currentHealth;
     private Coin CoinScript;
 
     public void DieCoins()
@@ -33,9 +34,8 @@ public class Coins_Drop : MonoBehaviour
     
     // Start is called before the first frame update
     private void Start()
-    {
-        currentHealth = maxHealth;
-        TakeDamage(200);
+    { 
+        currentHealth = EnemyData.maxHealth;
     }
 
     public void TakeDamage(int damage)
@@ -43,7 +43,7 @@ public class Coins_Drop : MonoBehaviour
             currentHealth -= damage;
             if (currentHealth <= 0)
             {
-                StartCoroutine(waittodie());
+                Destroy(gameObject);
             }
         }
 
@@ -53,9 +53,5 @@ public class Coins_Drop : MonoBehaviour
             DieCoins();
         }
 
-       IEnumerator waittodie()
-       {
-           yield return new WaitForSeconds(1f);
-           Die();
-       }
+
 }

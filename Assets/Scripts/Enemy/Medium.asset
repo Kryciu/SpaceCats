@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a53c1783842f12141a43fe0e9a49033f, type: 3}
+  m_Name: Medium
+  m_EditorClassIdentifier: 
+  checkpoints:
+  - {fileID: 3540554696402106537, guid: d90234540f82299468b237a68ed3fa4d, type: 3}
+  - {fileID: 6836499523349784378, guid: b7c0df5b0b78d294b9d9d9e6a2a06a3b, type: 3}
+  - {fileID: 2041504950624869605, guid: 6c183f86ad717ff41999ef79e617bb26, type: 3}
+  - {fileID: 8590825742267402503, guid: 704a7ac38dcc39745a396592a526025e, type: 3}
+  maxHealth: 0
+  Speed: 35
