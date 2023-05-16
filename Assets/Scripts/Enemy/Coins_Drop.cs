@@ -36,6 +36,7 @@ public class Coins_Drop : MonoBehaviour
     private void Start()
     { 
         currentHealth = EnemyData.maxHealth;
+        //TakeDamage(0);
     }
 
     public void TakeDamage(int damage)
@@ -43,14 +44,14 @@ public class Coins_Drop : MonoBehaviour
             currentHealth -= damage;
             if (currentHealth <= 0)
             {
-                Destroy(gameObject);
+                Die();
             }
         }
 
        private void Die()
         {
-            Destroy(gameObject);
             DieCoins();
+            Destroy(gameObject);
         }
 
 
