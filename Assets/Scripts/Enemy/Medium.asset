@@ -17,5 +17,7 @@ MonoBehaviour:
   - {fileID: 6836499523349784378, guid: b7c0df5b0b78d294b9d9d9e6a2a06a3b, type: 3}
   - {fileID: 2041504950624869605, guid: 6c183f86ad717ff41999ef79e617bb26, type: 3}
   - {fileID: 8590825742267402503, guid: 704a7ac38dcc39745a396592a526025e, type: 3}
-  maxHealth: 0
-  Speed: 35
+  - {fileID: 8041950413398641287, guid: 940c10914e2a5c1498cf56e3981ec927, type: 3}
+  - {fileID: 8553194358257364145, guid: f4adfba540a9b8d4da0cef4fa442d501, type: 3}
+  maxHealth: 250
+  Speed: 25

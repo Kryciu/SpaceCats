@@ -12,7 +12,7 @@ public class Coins_Drop : MonoBehaviour
 
     private bool isDead = false;
     private float maxHealth;
-    public float currentHealth;
+    private float currentHealth;
     private Coin CoinScript;
 
     public void DieCoins()

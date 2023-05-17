@@ -13,6 +13,13 @@ MonoBehaviour:
   m_Name: Hard
   m_EditorClassIdentifier: 
   checkpoints:
-  - {fileID: 0}
-  maxHealth: 100
-  Speed: 10
+  - {fileID: 8205589038560895350, guid: d833bff24bf2e804a94d2323666f5d46, type: 3}
+  - {fileID: 5800739434610490306, guid: f3041d0c7b218e64e82a9588c0deeb59, type: 3}
+  - {fileID: 4121756509182078403, guid: a99a0432967bee1448b08df9d17d6086, type: 3}
+  - {fileID: 4130717412298129869, guid: 60f37c338583aa74681c58bbcdda4525, type: 3}
+  - {fileID: 463114265601909292, guid: 86025048d22ef894c9fd57805ec1de87, type: 3}
+  - {fileID: 1244960955311203654, guid: cac2198511dac274ebe4dce1d28192bb, type: 3}
+  - {fileID: 3275840199209272698, guid: d860af01cc9bec8419a3c15876baa6de, type: 3}
+  - {fileID: 3702631096413190785, guid: 342b9605afe8e1044bba36b3c37df787, type: 3}
+  maxHealth: 450
+  Speed: 40
