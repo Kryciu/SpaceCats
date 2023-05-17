@@ -6,6 +6,8 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
+using FMODUnity;
+using FMOD.Studio;
 
 public class ShipWeapons : MonoBehaviour
 {
@@ -26,13 +28,22 @@ public class ShipWeapons : MonoBehaviour
 
     private float _lastShootTime;
     private float _cooldownCounter;
-    
+
+    private string eventNameShipWeapons = "event:/blasters";
+    EventInstance ShipWeaponsAudio;
+    private Camera _playerCamera;
+
     private bool _canShoot = true;
 
+    private void Awake()
+    {
+        _playerCamera = Camera.main;
+    }
     private void Start()
     {
         //Set weapon and damage on start
         UpdateWeaponData(laser);
+        ShipWeaponsAudio = RuntimeManager.CreateInstance(eventNameShipWeapons);
     }
 
     private void Update()
@@ -69,6 +80,9 @@ public class ShipWeapons : MonoBehaviour
 
     private void ShootLaser()
     {
+        
+        ShipWeaponsAudio.set3DAttributes(RuntimeUtils.To3DAttributes(_playerCamera.transform.position)); 
+
         if (!_canShoot) return;
         _cooldownCounter += 0.1f;
         if (!(_cooldownCounter >= 200))
@@ -77,6 +91,8 @@ public class ShipWeapons : MonoBehaviour
             if (ProjectileOrigin == null) return;
             Instantiate(laserPrefab, ProjectileOrigin.transform.position, quaternion.identity);
             laserPrefab.GetComponent<Laser>().damage = damageAmount;
+            ShipWeaponsAudio.setParameterByNameWithLabel("blasters", "small blaster");
+            ShipWeaponsAudio.start();
             _lastShootTime = Time.time;
         }
         else

@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
 
 public class ShipMovement : MonoBehaviour
 {
@@ -13,6 +15,14 @@ public class ShipMovement : MonoBehaviour
     private Vector3 _sideMovement;
     private float _shipRotation;
     private float _moveRight;
+
+    //FMOD
+    private string eventName = "event:/spaceship moving";
+    EventInstance instance;
+    private string eventNameSpaceshipsidemovement = "event:/spaceship avoiding";
+    EventInstance spaceshipSideMovement;
+
+    bool istriggered;
 
     [Header("Ship Settings")] 
     public GameObject ship;
@@ -29,11 +39,22 @@ public class ShipMovement : MonoBehaviour
     {
         _mainCamera = GetComponentInChildren<Camera>();
         _shipRigidbody = ship.transform.GetComponent<Rigidbody>();
+        
+    }
+
+    private void Start()
+    {
+        spaceshipSideMovement = RuntimeManager.CreateInstance(eventNameSpaceshipsidemovement);
+        instance = RuntimeManager.CreateInstance(eventName);
+        instance.start();
+
+        
     }
 
     //Ship movement
     private void Update()
     {
+
         if (ship == null) return;
         _moveRight = Input.GetAxis("Horizontal");
 
@@ -44,7 +65,35 @@ public class ShipMovement : MonoBehaviour
         _shipRotation = -_moveRight * tiltAngle;
         Quaternion targetRotation = Quaternion.AngleAxis(_shipRotation, Vector3.forward);
         _shipRigidbody.rotation = Quaternion.Slerp(_shipRigidbody.rotation, targetRotation, rotationSmooth * Time.deltaTime);
+
+        instance.set3DAttributes(RuntimeUtils.To3DAttributes(_mainCamera.transform.position));
+        spaceshipSideMovement.set3DAttributes(RuntimeUtils.To3DAttributes(_mainCamera.transform.position));
+
+        if (Input.GetKeyDown("a"))
+        {
+            spaceshipSideMovement.setParameterByNameWithLabel("avoiding", "left");
+            spaceshipSideMovement.start();
+        }
+
+        if (Input.GetKeyUp("a"))
+        {
+            spaceshipSideMovement.release();
+        }
+
+        if (Input.GetKeyDown("d"))
+        {
+            spaceshipSideMovement.setParameterByNameWithLabel("avoiding", "right");
+            spaceshipSideMovement.start();
+        }
+
+        if (Input.GetKeyUp("d"))
+        {
+            spaceshipSideMovement.release();
+        }
     }
+        
+
+    
 
     //Update camera location
     private void LateUpdate()
@@ -58,20 +107,25 @@ public class ShipMovement : MonoBehaviour
     {
         switch (ship.transform.position.x)
         {
-            case >= 50:
+            case >= 50: //right
                 _sideMovement = new Vector3(0, 0, 0);
                 if (_moveRight < 0)
                 {
                     _sideMovement = new Vector3(_moveRight, 0, 0);
+               
+
                 }
                 break;
-            case <= -50:
+            case <= -50: //left
                 _sideMovement = new Vector3(0, 0, 0);
                 if (_moveRight > 0)
                 {
                     _sideMovement = new Vector3(_moveRight, 0, 0);
+                   
                 } 
                 break;
+           
+                
         }
     }
 }

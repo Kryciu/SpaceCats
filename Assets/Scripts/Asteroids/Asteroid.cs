@@ -23,20 +23,33 @@ public class Asteroid : MonoBehaviour, IDamagable
     private void Update()
     {
         _asteroidRB.velocity = new Vector3(0, 0, (asteroidData.speed * -1));
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
         IDamagable damagable = other.GetComponentInParent<IDamagable>();
         if (damagable == null) return;
-        Destroy(other.gameObject);
+        damagable.DealDamage(100);
+
     }
 
     public void DestroyObject()
     {
         instance = RuntimeManager.CreateInstance(eventName);
         instance.set3DAttributes(RuntimeUtils.To3DAttributes(_playerCamera.transform.position));
-        instance.setParameterByNameWithLabel("asteroid", "small explosion");
+        switch (asteroidData.Size)
+        {
+            case AsteroidData.size.Small:
+                instance.setParameterByNameWithLabel("asteroid", "small explosion");
+                break;
+            case AsteroidData.size.Medium:
+                instance.setParameterByNameWithLabel("asteroid", "medium explosion");
+                break;
+            case AsteroidData.size.Large:
+                instance.setParameterByNameWithLabel("asteroid", "big explosion");
+                break;
+        }
         instance.start();
         Destroy(gameObject);
     }
