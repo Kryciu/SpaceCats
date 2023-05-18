@@ -7,11 +7,18 @@ public class Coin : MonoBehaviour
 {
     public bool isSpawn = false;
     public AnimationCurve AnimationCurve;
+    public float speed = 20;
+    private Rigidbody _rb;
 
     IEnumerator unSpawn()
     {
         yield return new WaitForSeconds(5f);
         Destroy(gameObject);
+    }
+
+    private void Awake()
+    {
+        _rb = GetComponent<Rigidbody>();
     }
     
     // Start is called before the first frame update
@@ -33,8 +40,11 @@ public class Coin : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
+    {
+        _rb.velocity = new Vector3(0, 0, speed * -1);
         
+    }
     }
 }
