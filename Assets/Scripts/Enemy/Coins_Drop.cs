@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -54,5 +55,8 @@ public class Coins_Drop : MonoBehaviour
             Destroy(gameObject);
         }
 
-
+       private void Update()
+       {
+           CoinScript._rb.velocity = new Vector3(0, 0, (20 * -1));
+       }
 }

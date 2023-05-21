@@ -8,7 +8,7 @@ public class Coin : MonoBehaviour
     public bool isSpawn = false;
     public AnimationCurve AnimationCurve;
     public float speed = 20;
-    private Rigidbody _rb;
+    public Rigidbody _rb;
 
     IEnumerator unSpawn()
     {
