@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7866364061446337267}
   - component: {fileID: 7866364061446337264}
   - component: {fileID: 7866364061446337268}
+  - component: {fileID: -6475852804771947986}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -111,9 +112,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyData: {fileID: 11400000, guid: 1abdfc9613e4f3f49a8469c8aeb9a101, type: 2}
-  checkpoint:
-  - {fileID: 0}
-  - {fileID: 0}
-  i: 0
-  speed: 10
-  _currentCheckpointIndex: 0
+--- !u!114 &-6475852804771947986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7866364061446337262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9acd6cc1c336da42a0b80dc2d9119bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyData: {fileID: 0}
+  coinPrefab: {fileID: 1052428478831689333, guid: 9f2efcf957026b340b827fc4656c2636,
+    type: 3}
+  coinCount: 5

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -26,33 +27,9 @@ public class Coins_Drop : MonoBehaviour
                 GameObject coin = Instantiate(coinPrefab, transform.position, quaternion.identity);
                 coin.transform.position += new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
                 CoinScript = coin.GetComponent<Coin>();
-                CoinScript.isSpawn = true;
+                if(CoinScript != null)
+                    CoinScript.isSpawn = true;
             }
         }
     }
-    
-    
-    // Start is called before the first frame update
-    private void Start()
-    { 
-        currentHealth = EnemyData.maxHealth;
-        //TakeDamage(0);
-    }
-
-    public void TakeDamage(int damage)
-        {
-            currentHealth -= damage;
-            if (currentHealth <= 0)
-            {
-                Die();
-            }
-        }
-
-       private void Die()
-        {
-            DieCoins();
-            Destroy(gameObject);
-        }
-
-
 }
