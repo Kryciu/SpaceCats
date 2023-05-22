@@ -30,7 +30,7 @@ public class Asteroid : MonoBehaviour, IDamagable
     {
         IDamagable damagable = other.GetComponentInParent<IDamagable>();
         if (damagable == null) return;
-        damagable.DealDamage(100);
+        damagable.TakeDamage(100);
 
     }
 
@@ -54,11 +54,12 @@ public class Asteroid : MonoBehaviour, IDamagable
         Destroy(gameObject);
     }
 
-    public void DealDamage(float damage)
+    public void TakeDamage(float damage)
     {
         asteroidData.health -= damage;
         if (asteroidData.health <= 0)
         {
+            GetComponent<Coins_Drop>()?.DieCoins();
             DestroyObject();
         }
     }

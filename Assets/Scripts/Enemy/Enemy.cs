@@ -17,17 +17,19 @@ public class Enemy : MonoBehaviour, IDamagable
     private float speed;
 
     private int _currentCheckpointIndex;
+    private Vector3 originPosition;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+        originPosition = transform.position;
     }
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealh = EnemyData.maxHealth;
-        transform.position = EnemyData.checkpoints[_currentCheckpointIndex].transform.position;
+        transform.position -= EnemyData.checkpoints[_currentCheckpointIndex].transform.position;
 
         speed = EnemyData.Speed;
     }
@@ -37,26 +39,22 @@ public class Enemy : MonoBehaviour, IDamagable
     {
         var step = (speed = EnemyData.Speed) * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position,
-            EnemyData.checkpoints[_currentCheckpointIndex].transform.position, step);
+            originPosition + EnemyData.checkpoints[_currentCheckpointIndex].transform.position, step);
         
-        if (transform.position == EnemyData.checkpoints[_currentCheckpointIndex].transform.position)
+        if (transform.position == originPosition + EnemyData.checkpoints[_currentCheckpointIndex].transform.position)
         {
             _currentCheckpointIndex = (_currentCheckpointIndex + 1) % EnemyData.checkpoints.Count;
         }
 
-        void DealDamage(float damage)
-        {
-            currentHealh -= damage;
-            if (currentHealh <= 0)
-            {
-                Destroy(gameObject);
-            }
-        }
-
     }
 
-    public void DealDamage(float damage)
+    public void TakeDamage(float damage)
     {
-        throw new NotImplementedException();
+        currentHealh -= damage;
+        if (currentHealh <= 0)
+        {
+            GetComponent<Coins_Drop>().DieCoins();
+            Destroy(gameObject);
+        }
     }
 }

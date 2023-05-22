@@ -7,7 +7,7 @@ public class Coin : MonoBehaviour
 {
     public bool isSpawn = false;
     public AnimationCurve AnimationCurve;
-    public float speed = 20;
+    public float speed = 80;
     public Rigidbody _rb;
 
     IEnumerator unSpawn()
@@ -42,9 +42,6 @@ public class Coin : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-    {
         _rb.velocity = new Vector3(0, 0, speed * -1);
-        
-    }
     }
 }

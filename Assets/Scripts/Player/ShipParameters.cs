@@ -19,7 +19,7 @@ public class ShipParameters : MonoBehaviour, IDamagable
         _playerCamera = Camera.main;
     }
 
-    public void DealDamage(float damage)
+    public void TakeDamage(float damage)
     {
         shipStats.health -= damage;
         if (shipStats.health <= 0)

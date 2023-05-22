@@ -24,7 +24,7 @@ public class Laser : MonoBehaviour
         //When hit, deal damage
         IDamagable damagable = other.GetComponentInParent<IDamagable>();
         if (damagable == null) return;
-        damagable.DealDamage(damage);
+        damagable.TakeDamage(damage);
     }
 
     private void Update()
