@@ -156,6 +156,9 @@
 		<property name="length">
 			<value>0.5</value>
 		</property>
+		<property name="volume">
+			<value>-11.5</value>
+		</property>
 		<relationship name="triggerConditions">
 			<destination>{50cf5b4b-b73f-4324-bb6a-46ba1594e6af}</destination>
 		</relationship>
@@ -244,11 +247,11 @@
 		<property name="triggerProbabilityEnabled">
 			<value>true</value>
 		</property>
-		<property name="triggerProbability">
-			<value>50</value>
-		</property>
 		<property name="start">
 			<value>19.5</value>
+		</property>
+		<property name="volume">
+			<value>4</value>
 		</property>
 		<relationship name="triggerConditions">
 			<destination>{cc34ef02-f130-4628-aba2-b35fb3402267}</destination>
@@ -279,7 +282,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{3b99f723-74b8-4fc5-9128-af5a40aeb415}">
 		<property name="volume">
-			<value>-6</value>
+			<value>-18</value>
 		</property>
 		<property name="name">
 			<value>Audio 2</value>
