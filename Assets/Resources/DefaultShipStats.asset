@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DefaultShipStats
   m_EditorClassIdentifier: 
   health: 100
-  speed: 3
+  speed: 50

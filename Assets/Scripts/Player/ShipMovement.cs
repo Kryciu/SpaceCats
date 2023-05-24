@@ -22,11 +22,9 @@ public class ShipMovement : MonoBehaviour
     private string eventNameSpaceshipsidemovement = "event:/spaceship avoiding";
     EventInstance spaceshipSideMovement;
 
-    bool istriggered;
-
     [Header("Ship Settings")] 
     public GameObject ship;
-    public float sideMoveSpeed;
+    public ShipStats shipStats;
     public float tiltAngle;
     public float rotationSmooth;
 
@@ -39,7 +37,15 @@ public class ShipMovement : MonoBehaviour
     {
         _mainCamera = GetComponentInChildren<Camera>();
         _shipRigidbody = ship.transform.GetComponent<Rigidbody>();
-        
+
+        if (PlayerPrefs.GetInt("SpeedLevel") == 0)
+        {
+            shipStats = Resources.Load<ShipStats>("DefaultShipStats");
+        }
+        else
+        {
+            shipStats = Resources.Load<ShipStats>("UpgradedShipStats");
+        }
     }
 
     private void Start()
@@ -47,8 +53,6 @@ public class ShipMovement : MonoBehaviour
         spaceshipSideMovement = RuntimeManager.CreateInstance(eventNameSpaceshipsidemovement);
         instance = RuntimeManager.CreateInstance(eventName);
         instance.start();
-
-        
     }
 
     //Ship movement
@@ -60,20 +64,15 @@ public class ShipMovement : MonoBehaviour
         instance.setParameterByName("Turn", _moveRight);
         _sideMovement = new Vector3(_moveRight, 0, 0);
         MovementBoundaries();
-        _shipRigidbody.velocity = _sideMovement * sideMoveSpeed;
+        _shipRigidbody.velocity = _sideMovement * shipStats.speed;
 
         _shipRotation = -_moveRight * tiltAngle;
         Quaternion targetRotation = Quaternion.AngleAxis(_shipRotation, Vector3.forward);
         _shipRigidbody.rotation = Quaternion.Slerp(_shipRigidbody.rotation, targetRotation, rotationSmooth * Time.deltaTime);
 
         instance.set3DAttributes(RuntimeUtils.To3DAttributes(_mainCamera.transform.position));
-        spaceshipSideMovement.set3DAttributes(RuntimeUtils.To3DAttributes(_mainCamera.transform.position));
-
-        
+        spaceshipSideMovement.set3DAttributes(RuntimeUtils.To3DAttributes(_mainCamera.transform.position)); 
     }
-        
-
-    
 
     //Update camera location
     private void LateUpdate()
@@ -92,8 +91,6 @@ public class ShipMovement : MonoBehaviour
                 if (_moveRight < 0)
                 {
                     _sideMovement = new Vector3(_moveRight, 0, 0);
-               
-
                 }
                 break;
             case <= -50: //left
@@ -101,11 +98,8 @@ public class ShipMovement : MonoBehaviour
                 if (_moveRight > 0)
                 {
                     _sideMovement = new Vector3(_moveRight, 0, 0);
-                   
                 } 
                 break;
-           
-                
         }
     }
 }

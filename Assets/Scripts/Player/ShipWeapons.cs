@@ -38,6 +38,17 @@ public class ShipWeapons : MonoBehaviour
     private void Awake()
     {
         _playerCamera = Camera.main;
+
+        if (PlayerPrefs.GetInt("PowerLevel") == 0)
+        {
+            laser = Resources.Load<ShipWeaponsData>("Laser");
+            strongerLaser = Resources.Load<ShipWeaponsData>("StrongerLaser");
+        }
+        else
+        {
+            laser = Resources.Load<ShipWeaponsData>("LaserUpgraded");
+            strongerLaser = Resources.Load<ShipWeaponsData>("StrongerLaserUpgraded");
+        }
     }
     private void Start()
     {

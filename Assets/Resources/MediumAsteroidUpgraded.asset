@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 158bf295f3b57024d826845a677498ff, type: 3}
-  m_Name: LargeAsteroid
+  m_Name: MediumAsteroidUpgraded
   m_EditorClassIdentifier: 
-  health: -375
-  speed: 45
-  Size: 2
+  health: 155
+  speed: 120
+  Size: 1
