@@ -1180,7 +1180,7 @@ PrefabInstance:
     - target: {fileID: 4377456548977943215, guid: d53d6bccd0136fb4c8d5d8141d9dab18,
         type: 3}
       propertyPath: sideMoveSpeed
-      value: 50
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 4377456548977943215, guid: d53d6bccd0136fb4c8d5d8141d9dab18,
         type: 3}
@@ -1197,6 +1197,18 @@ PrefabInstance:
       propertyPath: forwardMoveSpeed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4377456548977943216, guid: d53d6bccd0136fb4c8d5d8141d9dab18,
+        type: 3}
+      propertyPath: laser
+      value: 
+      objectReference: {fileID: 11400000, guid: 1a410ec1bfcc9304582a07f4de247295,
+        type: 2}
+    - target: {fileID: 4377456548977943216, guid: d53d6bccd0136fb4c8d5d8141d9dab18,
+        type: 3}
+      propertyPath: strongerLaser
+      value: 
+      objectReference: {fileID: 11400000, guid: a83398468cb3129459d6c589a6129095,
+        type: 2}
     - target: {fileID: 4377456548977943217, guid: d53d6bccd0136fb4c8d5d8141d9dab18,
         type: 3}
       propertyPath: shipStats

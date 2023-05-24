@@ -18,6 +18,37 @@ public class Asteroid : MonoBehaviour, IDamagable
     {
         _playerCamera = Camera.main;
         _asteroidRB = GetComponent<Rigidbody>();
+
+        if (PlayerPrefs.GetInt("SpeedLevel") == 0)
+        {
+            switch (asteroidData.Size)
+            {
+                case AsteroidData.size.Small:
+                    asteroidData = Resources.Load<AsteroidData>("SmallAsteroid");
+                    break;
+                case AsteroidData.size.Medium:
+                    asteroidData = Resources.Load<AsteroidData>("MediumAsteroid");
+                    break;
+                case AsteroidData.size.Large:
+                    asteroidData = Resources.Load<AsteroidData>("LargeAsteroid");
+                    break;
+            }
+        }
+        else
+        {
+            switch (asteroidData.Size)
+            {
+                case AsteroidData.size.Small:
+                    asteroidData = Resources.Load<AsteroidData>("SmallAsteroidUpgraded");
+                    break;
+                case AsteroidData.size.Medium:
+                    asteroidData = Resources.Load<AsteroidData>("MediumAsteroidUpgraded");
+                    break;
+                case AsteroidData.size.Large:
+                    asteroidData = Resources.Load<AsteroidData>("LargeAsteroidUpgraded");
+                    break;
+            }
+        }
     }
 
     private void Update()

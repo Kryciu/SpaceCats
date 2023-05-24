@@ -17,6 +17,13 @@ public class ShipParameters : MonoBehaviour, IDamagable
     private void Awake()
     {
         _playerCamera = Camera.main;
+        if (PlayerPrefs.GetInt("HealthLevel") == 0)
+        {
+            shipStats = Resources.Load<ShipStats>("DefaultShipStats");
+        } else
+        {
+            shipStats = Resources.Load<ShipStats>("UpgradedShipStats");
+        }
     }
 
     public void TakeDamage(float damage)
