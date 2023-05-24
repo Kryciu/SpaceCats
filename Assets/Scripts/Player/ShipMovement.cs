@@ -57,7 +57,7 @@ public class ShipMovement : MonoBehaviour
 
         if (ship == null) return;
         _moveRight = Input.GetAxis("Horizontal");
-
+        instance.setParameterByName("Turn", _moveRight);
         _sideMovement = new Vector3(_moveRight, 0, 0);
         MovementBoundaries();
         _shipRigidbody.velocity = _sideMovement * sideMoveSpeed;
