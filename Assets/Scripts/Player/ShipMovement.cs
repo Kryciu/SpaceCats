@@ -69,27 +69,7 @@ public class ShipMovement : MonoBehaviour
         instance.set3DAttributes(RuntimeUtils.To3DAttributes(_mainCamera.transform.position));
         spaceshipSideMovement.set3DAttributes(RuntimeUtils.To3DAttributes(_mainCamera.transform.position));
 
-        if (Input.GetKeyDown("a"))
-        {
-            spaceshipSideMovement.setParameterByNameWithLabel("avoiding", "left");
-            spaceshipSideMovement.start();
-        }
-
-        if (Input.GetKeyUp("a"))
-        {
-            spaceshipSideMovement.release();
-        }
-
-        if (Input.GetKeyDown("d"))
-        {
-            spaceshipSideMovement.setParameterByNameWithLabel("avoiding", "right");
-            spaceshipSideMovement.start();
-        }
-
-        if (Input.GetKeyUp("d"))
-        {
-            spaceshipSideMovement.release();
-        }
+        
     }
         
 
