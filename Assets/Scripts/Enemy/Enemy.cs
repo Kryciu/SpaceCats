@@ -15,9 +15,12 @@ public class Enemy : MonoBehaviour, IDamagable
     private Rigidbody _rb;
 
     private float speed;
+    public float detectionRange = 400f;
+    private GameObject Player;
 
     private int _currentCheckpointIndex;
     private Vector3 originPosition;
+    private bool isStop;
 
     private void Awake()
     {
@@ -29,23 +32,47 @@ public class Enemy : MonoBehaviour, IDamagable
     void Start()
     {
         currentHealh = EnemyData.maxHealth;
-        transform.position -= EnemyData.checkpoints[_currentCheckpointIndex].transform.position;
-
         speed = EnemyData.Speed;
+
+        Player = GameObject.FindGameObjectWithTag("Player");
+
+        isStop = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        var step = (speed = EnemyData.Speed) * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position,
-            originPosition + EnemyData.checkpoints[_currentCheckpointIndex].transform.position, step);
+        float distanceToPlayer = Vector3.Distance(transform.position, Player.transform.position);
         
-        if (transform.position == originPosition + EnemyData.checkpoints[_currentCheckpointIndex].transform.position)
+        if(isStop)
         {
-            _currentCheckpointIndex = (_currentCheckpointIndex + 1) % EnemyData.checkpoints.Count;
-        }
+            var step = EnemyData.Speed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position,originPosition + EnemyData.checkpoints
+                [_currentCheckpointIndex].transform.position, step);
 
+            if (transform.position == originPosition + EnemyData.checkpoints[_currentCheckpointIndex].transform.position)
+
+            {
+                _currentCheckpointIndex = (_currentCheckpointIndex + 1) % EnemyData.checkpoints.Count;
+            }
+        }
+        else
+        {
+            var step = EnemyData.Speed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, step);
+            
+            if (distanceToPlayer <= detectionRange)
+            {
+                originPosition = transform.position;
+                _rb.velocity = Vector3.zero;
+                isStop = true;
+                if (isStop = true)
+                {
+                    EnemyData.Speed = 200;
+                }
+
+            }
+        }
     }
 
     public void TakeDamage(float damage)

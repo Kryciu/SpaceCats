@@ -6,7 +6,7 @@ public class EnemyData : ScriptableObject
 {
     public List<GameObject> checkpoints = new List<GameObject>();
     public float maxHealth = 100;
-    public float Speed = 10;
+    public float Speed = 80;
     
     public enum difficult
     {
