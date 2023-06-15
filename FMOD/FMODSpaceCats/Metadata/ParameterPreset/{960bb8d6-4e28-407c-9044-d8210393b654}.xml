@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{960bb8d6-4e28-407c-9044-d8210393b654}">
+		<property name="name">
+			<value>dodge</value>
+		</property>
+		<relationship name="folder">
+			<destination>{0a7fbf82-89eb-492a-ac93-45afd97f75d4}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{30c908e4-dd4f-4c07-8ab1-eec2f3947e77}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{30c908e4-dd4f-4c07-8ab1-eec2f3947e77}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>3</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>small</value>
+			<value>medium</value>
+			<value>large</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
