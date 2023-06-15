@@ -86,14 +86,14 @@ public class ShipMovement : MonoBehaviour
     {
         switch (ship.transform.position.x)
         {
-            case >= 50: //right
+            case >= 100: //right
                 _sideMovement = new Vector3(0, 0, 0);
                 if (_moveRight < 0)
                 {
                     _sideMovement = new Vector3(_moveRight, 0, 0);
                 }
                 break;
-            case <= -50: //left
+            case <= -100: //left
                 _sideMovement = new Vector3(0, 0, 0);
                 if (_moveRight > 0)
                 {
