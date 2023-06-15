@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{7291b452-e1a4-4860-81ff-d7c560bcea02}">
+		<property name="assetPath">
+			<value>enemy blaster/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{baefa090-d0f8-4000-996e-91224c5ca83b}</destination>
+		</relationship>
+	</object>
+</objects>
