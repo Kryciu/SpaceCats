@@ -40,30 +40,33 @@ public class Enemy : MonoBehaviour, IDamagable
     // Update is called once per frame
     void Update()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, Player.transform.position);
+        if (Player != null)
+        {
+            float distanceToPlayer = Vector3.Distance(transform.position, Player.transform.position);
         
-        if(isStop)
-        {
-            var step = EnemyData.Speed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position,originPosition + EnemyData.checkpoints
-                [_currentCheckpointIndex].transform.position, step);
-
-            if (transform.position == originPosition + EnemyData.checkpoints[_currentCheckpointIndex].transform.position)
-
+            if(isStop)
             {
-                _currentCheckpointIndex = (_currentCheckpointIndex + 1) % EnemyData.checkpoints.Count;
+                var step = EnemyData.Speed * Time.deltaTime;
+                transform.position = Vector3.MoveTowards(transform.position,originPosition + EnemyData.checkpoints
+                    [_currentCheckpointIndex].transform.position, 1);
+
+                if (transform.position == originPosition + EnemyData.checkpoints[_currentCheckpointIndex].transform.position)
+
+                {
+                    _currentCheckpointIndex = (_currentCheckpointIndex + 1) % EnemyData.checkpoints.Count;
+                }
             }
-        }
-        else
-        {
-            var step = 100 * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, step);
-            
-            if (distanceToPlayer <= detectionRange)
+            else
             {
-                originPosition = transform.position;
-                _rb.velocity = Vector3.zero;
-                isStop = true;
+                //var step = 150 * Time.deltaTime;
+                //transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, step);
+                _rb.velocity = new Vector3(0, 0, (150 * -1));
+                if (distanceToPlayer <= detectionRange)
+                {
+                    originPosition = transform.position;
+                    _rb.velocity = Vector3.zero;
+                    isStop = true;
+                }
             }
         }
     }

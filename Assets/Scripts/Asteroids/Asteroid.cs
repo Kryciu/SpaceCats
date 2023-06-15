@@ -75,8 +75,11 @@ public class Asteroid : MonoBehaviour, IDamagable
     private void OnTriggerEnter(Collider other)
     {
         IDamagable damagable = other.GetComponentInParent<IDamagable>();
-        if (damagable == null) return;
-        damagable.TakeDamage(100);
+        if (!(other.name == "AteroidSmallPlaceholder(Clone)" || other.name == "AteroidMediumPlaceholder(Clone)" || other.name == "AteroidLargePlaceholder(Clone)"))
+        {
+            if (damagable == null) return;
+            damagable.TakeDamage(100);
+        }
 
     }
 

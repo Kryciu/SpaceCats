@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a53c1783842f12141a43fe0e9a49033f, type: 3}
-  m_Name: Easy
+  m_Name: Easy 1
   m_EditorClassIdentifier: 
   checkpoints:
-  - {fileID: 5566042174263518147, guid: e4e272114e028234482f03fa4475e422, type: 3}
-  - {fileID: 164813445360255894, guid: 395085282fd4fcb4da97a5e9b668dc5e, type: 3}
+  - {fileID: 5566042174263518147, guid: 365dfe2d53f948a4cafe4e7de812f513, type: 3}
+  - {fileID: 5566042174263518147, guid: b10d9102ef376ee4b8f7375fc6e55e22, type: 3}
   maxHealth: 100
   Speed: 100
