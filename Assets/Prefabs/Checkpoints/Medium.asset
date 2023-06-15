@@ -20,4 +20,4 @@ MonoBehaviour:
   - {fileID: 8041950413398641287, guid: 940c10914e2a5c1498cf56e3981ec927, type: 3}
   - {fileID: 8553194358257364145, guid: f4adfba540a9b8d4da0cef4fa442d501, type: 3}
   maxHealth: 250
-  Speed: 25
+  Speed: 50

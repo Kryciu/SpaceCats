@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour, IDamagable
 
     private float speed;
     public float detectionRange = 400f;
-    private GameObject Player;
+    public GameObject Player;
 
     private int _currentCheckpointIndex;
     private Vector3 originPosition;
@@ -33,8 +33,6 @@ public class Enemy : MonoBehaviour, IDamagable
     {
         currentHealh = EnemyData.maxHealth;
         speed = EnemyData.Speed;
-
-        Player = GameObject.FindGameObjectWithTag("Player");
 
         isStop = false;
     }
@@ -58,7 +56,7 @@ public class Enemy : MonoBehaviour, IDamagable
         }
         else
         {
-            var step = EnemyData.Speed * Time.deltaTime;
+            var step = 100 * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, step);
             
             if (distanceToPlayer <= detectionRange)
@@ -66,11 +64,6 @@ public class Enemy : MonoBehaviour, IDamagable
                 originPosition = transform.position;
                 _rb.velocity = Vector3.zero;
                 isStop = true;
-                if (isStop = true)
-                {
-                    EnemyData.Speed = 200;
-                }
-
             }
         }
     }
