@@ -9,9 +9,11 @@ public class ShipParameters : MonoBehaviour, IDamagable
     public ShipStats shipStats;
 
 
-    private string eventNameShipDestroy = "event:/spaceship destroyed";
+    private string eventNameShipDestroy = "event:/lvl/spaceship destroyed";
     EventInstance shipDestroyAudio;
     private Camera _playerCamera;
+    public GameObject MissionFailedUI;
+    public GameObject shipmesh;
 
 
     private void Awake()
@@ -34,8 +36,8 @@ public class ShipParameters : MonoBehaviour, IDamagable
             shipDestroyAudio = RuntimeManager.CreateInstance(eventNameShipDestroy);
             shipDestroyAudio.set3DAttributes(RuntimeUtils.To3DAttributes(_playerCamera.transform.position));
             shipDestroyAudio.start();
-            Destroy(gameObject);
-            
+            MissionFailedUI.SetActive(true);
+            Destroy(shipmesh);
         }
     }
 }

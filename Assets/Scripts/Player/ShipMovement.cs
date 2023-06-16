@@ -17,9 +17,9 @@ public class ShipMovement : MonoBehaviour
     private float _moveRight;
 
     //FMOD
-    private string eventName = "event:/spaceship moving";
+    private string eventName = "event:/lvl/spaceship moving";
     EventInstance instance;
-    private string eventNameSpaceshipsidemovement = "event:/spaceship avoiding";
+    private string eventNameSpaceshipsidemovement = "event:/lvl/spaceship avoiding";
     EventInstance spaceshipSideMovement;
 
     [Header("Ship Settings")] 

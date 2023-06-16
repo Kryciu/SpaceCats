@@ -12,11 +12,12 @@ public class Laser : MonoBehaviour
     
     [HideInInspector]
     public float damage;
+    public float lifetime;
 
     private void Start()
     {
         //Destroy laser if didn't hit anything
-        Destroy(gameObject,1f);
+        Destroy(gameObject,lifetime);
     }
 
     private void OnTriggerEnter(Collider other)

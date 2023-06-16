@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Krystian.unity
     guid: dd6d465d71bce974eb6786f96fb97e06
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ShipUpgrades.unity
     guid: baca695419cccc146855f934eedbc683
   m_configObjects: {}

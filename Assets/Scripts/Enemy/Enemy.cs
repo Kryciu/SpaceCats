@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using Debug = FMOD.Debug;
+using FMODUnity;
+using FMOD.Studio;
 
 public class Enemy : MonoBehaviour, IDamagable
 {
@@ -17,15 +19,20 @@ public class Enemy : MonoBehaviour, IDamagable
     private float speed;
     public float detectionRange = 400f;
     public GameObject Player;
+    public GameObject laserPrefab;
 
     private int _currentCheckpointIndex;
     private Vector3 originPosition;
     private bool isStop;
+    private string eventNameEnemyWeapons = "event:/enemy blasters";
+    EventInstance EnemyWeaponsAudio;
+    private Camera _playerCamera;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
         originPosition = transform.position;
+        _playerCamera = Camera.main;
     }
 
     // Start is called before the first frame update
@@ -35,6 +42,20 @@ public class Enemy : MonoBehaviour, IDamagable
         speed = EnemyData.Speed;
 
         isStop = false;
+        EnemyWeaponsAudio = RuntimeManager.CreateInstance(eventNameEnemyWeapons);
+    }
+
+    IEnumerator Shooting()
+    {
+        while (true)
+        {
+            EnemyWeaponsAudio.set3DAttributes(RuntimeUtils.To3DAttributes(_playerCamera.transform.position));
+            Instantiate(laserPrefab, transform.position - new Vector3(0,0,50), quaternion.identity);
+            EnemyWeaponsAudio.start();
+            EnemyWeaponsAudio.release();
+            yield return new WaitForSeconds(.1f);
+
+        }
     }
 
     // Update is called once per frame
@@ -66,6 +87,7 @@ public class Enemy : MonoBehaviour, IDamagable
                     originPosition = transform.position;
                     _rb.velocity = Vector3.zero;
                     isStop = true;
+                    StartCoroutine("Shooting");
                 }
             }
         }

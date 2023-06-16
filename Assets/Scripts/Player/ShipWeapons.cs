@@ -29,7 +29,7 @@ public class ShipWeapons : MonoBehaviour
     private float _lastShootTime;
     private float _cooldownCounter;
 
-    private string eventNameShipWeapons = "event:/blasters";
+    private string eventNameShipWeapons = "event:/lvl/blasters";
     EventInstance ShipWeaponsAudio;
     private Camera _playerCamera;
 

@@ -12,7 +12,7 @@ public class Coin : MonoBehaviour
 
     IEnumerator unSpawn()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(10f);
         Destroy(gameObject);
     }
 

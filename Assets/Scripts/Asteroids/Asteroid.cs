@@ -13,7 +13,7 @@ public class Asteroid : MonoBehaviour, IDamagable
 {
     [Header("Asteroid Settings")]
     public AsteroidData asteroidData;
-    private string eventName = "event:/asteroids";
+    private string eventName = "event:/lvl/asteroids";
     private float _health;
     EventInstance instance;
     private Rigidbody _asteroidRB;
