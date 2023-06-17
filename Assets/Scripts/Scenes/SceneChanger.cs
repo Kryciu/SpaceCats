@@ -7,17 +7,16 @@ using FMOD.Studio;
 
 
 
-public class MainMenu : MonoBehaviour, ILevelTransition
+public class SceneChanger : MonoBehaviour, ILevelTransition
 {
     public EventReference clickStart;
-    private EventInstance startInstance; // Instancja dŸwiêku FMOD
+    private EventInstance startInstance; // Instancja dÅºwiÄ™ku FMOD
 
     public EventReference click;
     private EventInstance clickInstance;
     public void OpenLevel(string levelName)
     {
         SceneManager.LoadScene(levelName);
-
     }
 
     public void OnClickStart()

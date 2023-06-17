@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Upgrades : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI CoinsAmount;
     private int CurrentHealthLevel;
     private int CurrentPowerLevel;
     private int CurrentSpeedLevel;
@@ -14,6 +17,12 @@ public class Upgrades : MonoBehaviour
         CurrentPowerLevel = PlayerPrefs.GetInt("PowerLevel");
         CurrentPowerLevel = PlayerPrefs.GetInt("SpeedLevel");
     }
+
+    private void Start()
+    {
+        UpdateCoinsAmount();
+    }
+
     public void HealthUpgrade()
     {
         CurrentHealthLevel = 1;
@@ -33,5 +42,10 @@ public class Upgrades : MonoBehaviour
         CurrentSpeedLevel = 1;
         PlayerPrefs.SetInt("HealthLevel", CurrentSpeedLevel);
         PlayerPrefs.Save();
+    }
+
+    public void UpdateCoinsAmount()
+    {
+        CoinsAmount.SetText(PlayerPrefs.GetInt("CoinsAmount").ToString());
     }
 }

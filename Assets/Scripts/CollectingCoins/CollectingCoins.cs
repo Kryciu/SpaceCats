@@ -28,7 +28,9 @@ public class CollectingCoins : MonoBehaviour
             CoinCollecting.start();
             Debug.Log("Coin collected");
             CoinCounter.coins += 1;
-           // Col.gameObject.SetActive(false);
+            PlayerPrefs.SetInt("CoinsAmount",CoinCounter.coins);
+            PlayerPrefs.Save();
+            // Col.gameObject.SetActive(false);
             Destroy(Col.gameObject);
         }
     }

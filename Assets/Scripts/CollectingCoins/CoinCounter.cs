@@ -11,6 +11,7 @@ public class CoinCounter : MonoBehaviour
 
     void Start()
     {
+        coins = PlayerPrefs.GetInt("CoinsAmount");
         coinText = GetComponent<TextMeshPro>();
     }
 

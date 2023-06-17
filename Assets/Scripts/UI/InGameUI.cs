@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 using FMODUnity;
 using FMOD.Studio;
 
-public class MissionFailed : MonoBehaviour
+public class InGameUI : MonoBehaviour
 {
     public EventReference clickStart;
-    private EventInstance startInstance; // Instancja dŸwiêku FMOD
+    private EventInstance startInstance; // Instancja dÅºwiÄ™ku FMOD
 
     public EventReference click;
     private EventInstance clickInstance;
@@ -23,6 +23,6 @@ public class MissionFailed : MonoBehaviour
     {
         clickInstance = RuntimeManager.CreateInstance(clickStart);
         clickInstance.start();
-        SceneManager.LoadScene("Krystian");
+        SceneManager.LoadScene("FirstLevel");
     }
 }
