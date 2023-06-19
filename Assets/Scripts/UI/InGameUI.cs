@@ -14,7 +14,6 @@ public class InGameUI : MonoBehaviour
     private EventInstance clickInstance;
     public void BackToMainMenu()
     {
-
         startInstance = RuntimeManager.CreateInstance(click);
         startInstance.start();
         SceneManager.LoadScene("MainMenu");
