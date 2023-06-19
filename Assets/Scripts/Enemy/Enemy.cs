@@ -24,9 +24,11 @@ public class Enemy : MonoBehaviour, IDamagable
     private int _currentCheckpointIndex;
     private Vector3 originPosition;
     private bool isStop;
-    private string eventNameEnemyWeapons = "event:/enemy blasters";
+    private string eventEnemyWeapons = "event:/enemy/enemy blasters";
     EventInstance EnemyWeaponsAudio;
     private Camera _playerCamera;
+    private string eventEnemyDestroy = "event:/enemy/enemy";
+    EventInstance EnemyDestroy;
 
     private void Awake()
     {
@@ -42,7 +44,7 @@ public class Enemy : MonoBehaviour, IDamagable
         speed = EnemyData.Speed;
 
         isStop = false;
-        EnemyWeaponsAudio = RuntimeManager.CreateInstance(eventNameEnemyWeapons);
+        EnemyWeaponsAudio = RuntimeManager.CreateInstance(eventEnemyWeapons);
     }
 
     IEnumerator Shooting()
@@ -93,12 +95,19 @@ public class Enemy : MonoBehaviour, IDamagable
         }
     }
 
+    
+
+
     public void TakeDamage(float damage)
     {
         currentHealh -= damage;
         if (currentHealh <= 0)
         {
-            GetComponent<Coins_Drop>().DieCoins();
+            EnemyDestroy = RuntimeManager.CreateInstance(eventEnemyDestroy);
+            EnemyDestroy.set3DAttributes(RuntimeUtils.To3DAttributes(_playerCamera.transform.position));
+            EnemyDestroy.start();
+
+        GetComponent<Coins_Drop>().DieCoins();
             Destroy(gameObject);
         }
     }
