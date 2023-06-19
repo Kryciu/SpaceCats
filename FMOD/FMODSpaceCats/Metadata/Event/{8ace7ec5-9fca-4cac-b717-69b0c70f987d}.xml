@@ -157,7 +157,7 @@
 			<value>0.5</value>
 		</property>
 		<property name="volume">
-			<value>-11.5</value>
+			<value>-19.5</value>
 		</property>
 		<relationship name="triggerConditions">
 			<destination>{50cf5b4b-b73f-4324-bb6a-46ba1594e6af}</destination>
@@ -179,6 +179,9 @@
 		<property name="length">
 			<value>0.22167487684729092</value>
 		</property>
+		<property name="volume">
+			<value>-9</value>
+		</property>
 		<relationship name="triggerConditions">
 			<destination>{b4868d32-5dd3-487c-b6d9-7f925a709462}</destination>
 		</relationship>
@@ -195,6 +198,9 @@
 		</property>
 		<property name="start">
 			<value>3.5</value>
+		</property>
+		<property name="volume">
+			<value>-13.5</value>
 		</property>
 		<relationship name="triggerConditions">
 			<destination>{62c440de-e916-49a1-81e1-458a2989fe7a}</destination>
@@ -216,6 +222,9 @@
 		<property name="length">
 			<value>0.5</value>
 		</property>
+		<property name="volume">
+			<value>-13.5</value>
+		</property>
 		<relationship name="triggerConditions">
 			<destination>{2aff7225-02f0-45a4-973f-1a66d17c7c58}</destination>
 		</relationship>
@@ -236,6 +245,9 @@
 		<property name="length">
 			<value>0.5</value>
 		</property>
+		<property name="volume">
+			<value>-14</value>
+		</property>
 		<relationship name="triggerConditions">
 			<destination>{96394b7a-8fa8-4af8-b0d5-40d463803a2e}</destination>
 		</relationship>
@@ -249,9 +261,6 @@
 		</property>
 		<property name="start">
 			<value>19.5</value>
-		</property>
-		<property name="volume">
-			<value>4</value>
 		</property>
 		<relationship name="triggerConditions">
 			<destination>{cc34ef02-f130-4628-aba2-b35fb3402267}</destination>
@@ -272,6 +281,9 @@
 		</property>
 		<property name="length">
 			<value>0.5</value>
+		</property>
+		<property name="volume">
+			<value>-9</value>
 		</property>
 		<relationship name="triggerConditions">
 			<destination>{513b85b3-85c7-4b45-8359-1fadbbef0083}</destination>
