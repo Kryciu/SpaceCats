@@ -94,21 +94,20 @@ public class Enemy : MonoBehaviour, IDamagable
             }
         }
     }
-
-    
-
-
     public void TakeDamage(float damage)
     {
-        currentHealh -= damage;
-        if (currentHealh <= 0)
+        if (isStop)
         {
-            EnemyDestroy = RuntimeManager.CreateInstance(eventEnemyDestroy);
-            EnemyDestroy.set3DAttributes(RuntimeUtils.To3DAttributes(_playerCamera.transform.position));
-            EnemyDestroy.start();
+            currentHealh -= damage;
+            if (currentHealh <= 0)
+            {
+                EnemyDestroy = RuntimeManager.CreateInstance(eventEnemyDestroy);
+                EnemyDestroy.set3DAttributes(RuntimeUtils.To3DAttributes(_playerCamera.transform.position));
+                EnemyDestroy.start();
 
-        GetComponent<Coins_Drop>().DieCoins();
-            Destroy(gameObject);
+                GetComponent<Coins_Drop>().DieCoins();
+                Destroy(gameObject);
+            }
         }
     }
 }
